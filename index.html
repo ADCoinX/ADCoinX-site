@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ADCoin - Digital Future</title>
+</head>
+<body style="font-family:sans-serif;text-align:center;padding:50px;">
+  <h1>Welcome to ADCoin (ADC)</h1>
+  <p>Your gateway to the decentralized future.</p>
+  <h3>🔗 Contract Address:</h3>
+  <code>0xbEE4cCE38fBB02868552c95e23F0d10c196A944f</code>
+  
+  <h3>💼 Add to MetaMask</h3>
+  <button onclick="addToken()">Add ADC to MetaMask</button>
+  
+  <script>
+    async function addToken() {
+      const wasAdded = await ethereum.request({
+        method: 'wallet_watchAsset',
+        params: {
+          type: 'ERC20',
+          options: {
+            address: '0xbEE4cCE38fBB02868552c95e23F0d10c196A944f',
+            symbol: 'ADC',
+            decimals: 18,
+            image: 'https://your-image-url.com/logo.png',
+          },
+        },
+      });
+      if (wasAdded) {
+        alert('Token added!');
+      } else {
+        alert('Token not added.');
+      }
+    }
+  </script>
+</body>
+</html>
